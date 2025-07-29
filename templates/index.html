@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smallville City Hall AI Assistant</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-2 text-center text-md-start">
+                    <i class="fas fa-landmark city-icon"></i>
+                </div>
+                <div class="col-md-8 text-center">
+                    <h1 class="header-title">Smallville City Hall</h1>
+                    <p class="header-subtitle">AI Assistant</p>
+                </div>
+                <div class="col-md-2 text-center text-md-end">
+                    <i class="fas fa-robot ai-icon"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Welcome Section -->
+            <div class="welcome-section text-center mb-5">
+                <h2>How can I help you today?</h2>
+                <p class="text-muted">Ask me anything about city services, permits, regulations, or general information.</p>
+            </div>
+
+            <!-- Search Section -->
+            <div class="search-section">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="search-card">
+                            <form id="questionForm" class="search-form">
+                                <div class="input-group">
+                                    <input 
+                                        type="text" 
+                                        id="questionInput" 
+                                        class="form-control search-input" 
+                                        placeholder="Type your question here..."
+                                        required
+                                    >
+                                    <button type="submit" class="btn btn-primary search-btn" id="askBtn">
+                                        <i class="fas fa-search me-2"></i>Ask
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Loading Section -->
+            <div id="loadingSection" class="loading-section text-center" style="display: none;">
+                <div class="spinner-border text-primary mb-3" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="text-muted">Searching for information...</p>
+            </div>
+
+            <!-- Results Section -->
+            <div id="resultsSection" class="results-section" style="display: none;">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="results-card">
+                            <div class="results-header">
+                                <h3><i class="fas fa-lightbulb me-2"></i>Answer</h3>
+                                <div class="question-display">
+                                    <strong>Your question:</strong> <span id="questionDisplay"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="answer-content">
+                                <div id="answerText" class="answer-text"></div>
+                            </div>
+
+                            <div id="sourcesSection" class="sources-section" style="display: none;">
+                                <h4><i class="fas fa-book me-2"></i>Sources</h4>
+                                <div id="sourcesList" class="sources-list"></div>
+                            </div>
+
+                            <div class="action-buttons">
+                                <button type="button" class="btn btn-outline-primary" id="newQuestionBtn">
+                                    <i class="fas fa-plus me-2"></i>Ask Another Question
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Error Section -->
+            <div id="errorSection" class="error-section" style="display: none;">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="alert alert-danger" role="alert">
+                            <h4 class="alert-heading"><i class="fas fa-exclamation-triangle me-2"></i>Error</h4>
+                            <p id="errorMessage" class="mb-0"></p>
+                            <hr>
+                            <button type="button" class="btn btn-outline-danger" id="retryBtn">
+                                <i class="fas fa-redo me-2"></i>Try Again
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 Smallville City Hall. All rights reserved.</p>
+            <p class="small text-muted">Powered by AI technology for better citizen services</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

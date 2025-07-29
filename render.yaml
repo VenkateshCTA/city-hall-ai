@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: smallville-city-hall-ai
+    env: python
+    buildCommand: pip install -r render_requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT main:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.8
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: NUCLIA_API_KEY
+        sync: false
